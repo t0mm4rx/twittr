@@ -1,8 +1,5 @@
+import colors from './colors';
 import {StyleSheet} from 'react-native';
-
-const colors = {
-  green: '#26c281',
-};
 
 const globalStyles = StyleSheet.create({
   textInput: {
