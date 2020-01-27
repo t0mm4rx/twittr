@@ -1,19 +1,26 @@
 import firebase from './firebase';
 
 export function checkMail(mail, callback, errorCallback) {
-	firebase
+  firebase
     .auth()
     .fetchSignInMethodsForEmail(mail)
     .then(res => {
       callback(res.length > 0);
-  }).catch(errorCallback);
+    })
+    .catch(errorCallback);
 }
 
-export function signup(mail, password) {
+export function signup(mail, password, name, success, error) {
   firebase
     .auth()
     .createUserWithEmailAndPassword(mail, password)
-    .then(res => {
-      console.log(res);
-    });
+    .then(user => {
+      firebase.auth().currentUser
+        .updateProfile({
+          displayName: name,
+        })
+        .then(success)
+        .catch(error);
+    })
+    .catch(error);
 }

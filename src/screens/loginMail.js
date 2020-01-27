@@ -24,10 +24,14 @@ class LoginMail extends React.Component {
     checkMail(
       this.state.mail,
       alreadySigned => {
-        console.log(alreadySigned);
+        if (!alreadySigned) {
+          this.props.navigation.navigate('Signup', {
+            mail: this.state.mail,
+          });
+        }
       },
       exception => {
-		  console.log(exception);
+        console.log(exception);
         this.state.showMailError = true;
         this.setState(this.state);
       },
@@ -64,7 +68,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   formWrapper: {
-    padding: 20,
+    padding: 40,
     justifyContent: 'center',
   },
 });

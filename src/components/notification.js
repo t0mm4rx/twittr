@@ -5,7 +5,7 @@ import colors from '../utils/colors';
 export default class Notification extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {top: new Animated.Value(-100)};
+    this.state = {top: new Animated.Value(-200)};
   }
 
   componentDidUpdate() {
@@ -14,6 +14,8 @@ export default class Notification extends React.Component {
       setTimeout(() => {
         this.hide();
       }, 6000);
+    } else {
+      this.hide();
     }
   }
 
@@ -22,7 +24,7 @@ export default class Notification extends React.Component {
   };
 
   hide = () => {
-    Animated.timing(this.state.top, {toValue: -300, duration: 1000}).start();
+    Animated.timing(this.state.top, {toValue: -200, duration: 1000}).start();
   };
 
   render() {
@@ -43,14 +45,18 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     padding: 20,
     width: '100%',
+    zIndex: 100,
   },
   textWrapper: {
     backgroundColor: colors.red,
     padding: 20,
     borderRadius: 10,
     flex: 1,
+    flexDirection: 'row',
+    width: '100%',
   },
   text: {
     color: '#fff',
+    flex: 1,
   },
 });

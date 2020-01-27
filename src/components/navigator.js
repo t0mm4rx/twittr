@@ -3,6 +3,7 @@ import {createAppContainer} from 'react-navigation';
 import App from '../screens/app';
 import New from '../screens/new';
 import LoginMail from '../screens/loginMail';
+import LoginSignup from '../screens/loginSignup';
 
 const stackLogged = createStackNavigator(
   {
@@ -18,6 +19,7 @@ const stackLogged = createStackNavigator(
 const stackAuth = createStackNavigator(
   {
     Mail: LoginMail,
+    Signup: LoginSignup,
   },
   {
     header: null,
