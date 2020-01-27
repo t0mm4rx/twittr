@@ -7,13 +7,20 @@ import {
   StyleSheet,
 } from 'react-native';
 import globalStyles from '../utils/globalStyles';
-import {checkMail, signup} from '../utils/auth';
+import {checkMail, signup, isLogged} from '../utils/auth';
 import Notification from '../components/notification';
 
 class LoginMail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {mail: '', showMailError: false};
+  }
+
+  componentDidMount() {
+	  isLogged(user => {
+  		if (user)
+  			this.props.navigation.navigate('stackLogged');
+  	});
   }
 
   onEmailChange = mail => {

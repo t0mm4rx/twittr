@@ -24,7 +24,8 @@ export function getPosts(dispatch) {
   };
 }
 
-export function addPost(message, author) {
+export function addPost(message, author, userId) {
+	console.log(userId);
   return dispatch => {
     firebase
       .firestore()
@@ -32,6 +33,7 @@ export function addPost(message, author) {
       .add({
         author: author,
         content: message,
+		userId: userId,
         timestamp: Date.now(),
       });
     return dispatch({

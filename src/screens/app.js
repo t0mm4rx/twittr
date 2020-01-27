@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {getPosts} from '../actions/posts';
 import Header from '../components/header.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
+//import {isLogged} from '../utils/auth';
 
 class App extends React.Component {
   render() {

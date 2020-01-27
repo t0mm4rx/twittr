@@ -33,3 +33,19 @@ export function signin(mail, password, success, error) {
     .then(success)
     .catch(error);
 }
+
+export function isLogged(result) {
+	firebase.auth().onAuthStateChanged(result);
+}
+
+export function getDisplayName() {
+	return firebase
+	  .auth()
+	  .currentUser.displayName;
+}
+
+export function getUid() {
+	return firebase
+	  .auth()
+	  .currentUser.uid;
+}
