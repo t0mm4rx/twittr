@@ -3,6 +3,8 @@ import {View, Text, StyleSheet, Animated} from 'react-native';
 import colors from '../utils/colors';
 
 export default class Notification extends React.Component {
+  hideTimeout = null;
+
   constructor(props) {
     super(props);
     this.state = {top: new Animated.Value(-200)};
@@ -11,7 +13,7 @@ export default class Notification extends React.Component {
   componentDidUpdate() {
     if (this.props.show) {
       this.show();
-      setTimeout(() => {
+      this.hideTimeout = setTimeout(() => {
         this.hide();
       }, 6000);
     } else {

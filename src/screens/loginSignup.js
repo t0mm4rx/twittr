@@ -42,7 +42,7 @@ class LoginSignup extends React.Component {
           this.props.navigation.navigate('stackLogged');
         },
         error => {
-			console.log(error);
+          console.log(error);
           this.state.showError = true;
           this.setState(this.state);
         },

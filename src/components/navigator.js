@@ -4,6 +4,7 @@ import App from '../screens/app';
 import New from '../screens/new';
 import LoginMail from '../screens/loginMail';
 import LoginSignup from '../screens/loginSignup';
+import LoginLogin from '../screens/loginLogin';
 
 const stackLogged = createStackNavigator(
   {
@@ -20,6 +21,7 @@ const stackAuth = createStackNavigator(
   {
     Mail: LoginMail,
     Signup: LoginSignup,
+    Login: LoginLogin,
   },
   {
     header: null,

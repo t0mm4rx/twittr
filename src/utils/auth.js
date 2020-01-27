@@ -15,12 +15,21 @@ export function signup(mail, password, name, success, error) {
     .auth()
     .createUserWithEmailAndPassword(mail, password)
     .then(user => {
-      firebase.auth().currentUser
-        .updateProfile({
+      firebase
+        .auth()
+        .currentUser.updateProfile({
           displayName: name,
         })
         .then(success)
         .catch(error);
     })
+    .catch(error);
+}
+
+export function signin(mail, password, success, error) {
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(mail, password)
+    .then(success)
     .catch(error);
 }

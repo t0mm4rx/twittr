@@ -24,8 +24,13 @@ class LoginMail extends React.Component {
     checkMail(
       this.state.mail,
       alreadySigned => {
+        console.log(alreadySigned);
         if (!alreadySigned) {
           this.props.navigation.navigate('Signup', {
+            mail: this.state.mail,
+          });
+        } else {
+          this.props.navigation.navigate('Login', {
             mail: this.state.mail,
           });
         }
@@ -46,6 +51,9 @@ class LoginMail extends React.Component {
           show={this.state.showMailError}
         />
         <View style={styles.formWrapper}>
+          <Text style={styles.title}>Twittr</Text>
+          <Text>Where <Text style={{fontStyle: 'italic'}}>everything</Text> happens</Text>
+          <View style={{marginTop: 40}} />
           <TextInput
             style={globalStyles.textInput}
             placeholder="Enter your mail"
@@ -70,6 +78,12 @@ const styles = StyleSheet.create({
   formWrapper: {
     padding: 40,
     justifyContent: 'center',
+  },
+  title: {
+    fontSize: 60,
+    fontFamily: 'Pacifico-Regular',
+	marginVertical: -20,
+	marginHorizontal: -10
   },
 });
 
